@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      }
+    ],
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "target": "es6",
+    "baseUrl": "./",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": [
+    "./**/*.tsx",
+    "./**/*.ts",
+    "./**/*.js",
+    "node_modules/cypress/types/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules",
+    "cypress"
+  ],
+  "types": [
+    "node",
+    "webpack-env",
+    "jest",
+    "jest-fetch-mock",
+    "cypress"
+  ]
+}

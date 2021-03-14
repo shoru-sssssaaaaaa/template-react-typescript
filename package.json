@@ -3,18 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/react": "11.1.0",
+    "@testing-library/user-event": "12.1.10",
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.2",
+    "dotenv-webpack": "6.0.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "html-webpack-plugin": "4.5.1",
+    "web-vitals": "1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "analyze": "webpack --profile --json > stats/stats.json && webpack-bundle-analyzer stats/stats.json",
+    "start": "webpack serve --config webpack.dev.js",
+    "build:development": "webpack --config webpack.dev.js",
+    "build": "npm run build:development",
+    "lint": "eslint \"{scripts,src,test}/**/*.{ts,tsx,js}\"",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -22,6 +29,23 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "5.2.1",
+    "dotenv": "8.2.0",
+    "ts-loader": "8.0.18",
+    "loadable-ts-transformer": "1.0.0-alpha.3",
+    "typescript": "4.2.3",
+    "webpack": "5.18.0",
+    "webpack-bundle-analyzer": "4.4.0",
+    "webpack-dev-server": "3.11.2",
+    "webpack-cli": "4.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "git-branch-is --not main && git-branch-is --not develop && git secrets --pre_commit_hook -- \"$@\" && git secrets --scan && pretty-quick --staged",
+      "pre-push": "npm run lint && npm test"
+    }
   },
   "browserslist": {
     "production": [
