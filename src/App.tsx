@@ -1,23 +1,14 @@
-import "./App.css";
+import React from "react";
+import { Typography } from "@material-ui/core";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WTF
-        </a>
-      </header>
+    <div>
+      <div id="appContent">
+        <Typography variant="h1">SAMPLE APP</Typography>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
